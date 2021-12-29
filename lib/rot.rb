@@ -1,6 +1,7 @@
 
 class Rot
     ALPHABET= ("a".."z").to_a + ("A".."Z").to_a
+    ALPHABET.freeze
     def initialize(rot_key)
         @rot_key=rot_key
     end
