@@ -16,5 +16,3 @@ else
     input_text=ARGV[1]
     Rot.new(input_number).encrypt(input_text)
 end
-
-
