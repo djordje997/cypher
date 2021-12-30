@@ -1,19 +1,20 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/rot.rb'
+
 def input_required
-puts 'Please enter your text'
-user_input = gets.chomp
-puts 'Please enter number'
-number_of_rotation=gets.chomp.to_i
-cypher=Rot.new(number_of_rotation).encrypt(user_input)
+    puts 'Please enter your text'
+    input_text = gets.chomp
+    puts 'Please enter number between 0-26'
+    input_number=gets.chomp.to_i
+    Rot.new(input_number).encrypt(input_text)
 end
 if ARGV[0]== nil
     input_required
 else
-number_of_rotation=ARGV[0].to_i
-user_input=ARGV[1]
-cypher=Rot.new(number_of_rotation).encrypt(user_input)
+    input_number=ARGV[0].to_i
+    input_text=ARGV[1]
+    Rot.new(input_number).encrypt(input_text)
 end
 
 

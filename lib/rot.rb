@@ -1,10 +1,15 @@
 
 class Rot
-    ALPHABET= ("a".."z").to_a + ("A".."Z").to_a
+    ALPHABET = ("a".."z").to_a + ("A".."Z").to_a
     ALPHABET.freeze
+
     def initialize(rot_key)
         @rot_key=rot_key
+        if @rot_key > 26
+            raise ArgumentError, 'Given number is greater than 26'
+        end
     end
+
     def encrypt(message)
         @message=message.split("")
         result=""
