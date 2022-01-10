@@ -1,26 +1,25 @@
-
 class Rot
-    ALPHABET = ("a".."z").to_a + ("A".."Z").to_a
-    ALPHABET.freeze
+    ALPHABET = (("a".."z").to_a + ("A".."Z").to_a).freeze
+    MAX_ROT_KEY = 26
 
     def initialize(rot_key)
-        @rot_key=rot_key
-        if @rot_key > 26
-            raise ArgumentError, 'Given number is greater than 26'
+        @rot_key = rot_key
+        if @rot_key > MAX_ROT_KEY
+            raise ArgumentError, "Given rot key must be less than 26."
         end
     end
 
     def encrypt(message)
-        @message=message.split("")
-        result=""
+        @message = message.split("")
+        result = ""
         for letter in @message
             if ALPHABET.include?(letter)
                 @rot_key.times do 
-                    letter=letter.next
+                    letter = letter.next
                 end
             end
                 result << letter[-1]
         end
-        p result
+        result
     end
 end
