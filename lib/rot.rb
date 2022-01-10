@@ -11,15 +11,24 @@ class Rot
 
     def encrypt(message)
         @message = message.split("")
-        result = ""
-        for letter in @message
-            if ALPHABET.include?(letter)
-                @rot_key.times do 
-                    letter = letter.next
-                end
+        @result = ""
+        for @letter in @message
+
+            def encryptable_letter?
+                ALPHABET.include?(@letter)
             end
-                result << letter[-1]
+
+                def encrypt_letter
+                    if encryptable_letter? 
+                        @rot_key.times do 
+                        @letter = @letter.next
+                        end
+                    end
+                end
+
+                encrypt_letter
+                @result << @letter[-1]
         end
-        result
-    end
+        @result     
+    end   
 end
