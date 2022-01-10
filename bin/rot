@@ -9,6 +9,7 @@ def input_required
   input_number = gets.chomp.to_i
   @output = Rot.new(input_number).encrypt(input_text)
 end
+
 if ARGV[0] == nil
   input_required
 else
