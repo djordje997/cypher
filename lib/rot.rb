@@ -18,16 +18,16 @@ class Rot
                 ALPHABET.include?(@letter)
             end
 
-                def encrypt_letter
-                    if encryptable_letter? 
-                        @rot_key.times do 
-                        @letter = @letter.next
-                        end
+            def encrypt_letter
+                if encryptable_letter? 
+                    @rot_key.times do 
+                    @letter = @letter.next
                     end
                 end
+            end
 
-                encrypt_letter
-                @result << @letter[-1]
+            encrypt_letter
+            @result << @letter[-1]
         end
         @result     
     end   
