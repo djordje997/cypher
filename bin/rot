@@ -7,7 +7,7 @@ def input_required
   input_text = gets.chomp
   puts 'Please enter number between 0-26'
   input_number = gets.chomp.to_i
-  @output = Rot.new(input_number).encrypt(input_text)
+  output = Rot.new(input_number).encrypt(input_text)
 end
 
 if ARGV[0] == nil
@@ -15,6 +15,6 @@ if ARGV[0] == nil
 else
   input_number = ARGV[0].to_i
   input_text = ARGV[1]
-  @output = Rot.new(input_number).encrypt(input_text)
+  output = Rot.new(input_number).encrypt(input_text)
 end
-p @output
+p output

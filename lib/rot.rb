@@ -9,25 +9,30 @@ class Rot
     end
   end
 
-  def encryptable_letter?
-    ALPHABET.include?(@letter)
+  private
+  
+  def encryptable_letter?(letter)
+    ALPHABET.include?(letter)
   end
 
-  def encrypt_letter
-    if encryptable_letter? 
+  def encrypt_letter(letter)
+    if encryptable_letter?(letter) 
       @rot_key.times do 
-      @letter = @letter.next
+      letter = letter.next
       end
     end
+    letter
   end
 
+  public
+
   def encrypt(message)
-    @message = message.split("")
-    @result = ""
-    for @letter in @message
-      encrypt_letter
-      @result << @letter[-1]
+    message = message.split("")
+    result = ""
+    for letter in message
+      encrypted_letter = encrypt_letter(letter)
+      result << encrypted_letter[-1]
     end
-    @result  
+    result  
   end
 end
