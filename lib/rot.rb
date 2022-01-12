@@ -21,7 +21,7 @@ class Rot
       letter = letter.next
       end
     end
-    letter
+    letter[-1]
   end
 
   public
@@ -30,8 +30,7 @@ class Rot
     message = message.split("")
     result = ""
     for letter in message
-      encrypted_letter = encrypt_letter(letter)
-      result << encrypted_letter[-1]
+      result << encrypt_letter(letter)
     end
     result  
   end
