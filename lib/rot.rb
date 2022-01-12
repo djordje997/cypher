@@ -9,6 +9,15 @@ class Rot
     end
   end
 
+  def encrypt(message)
+    message = message.split("")
+    result = ""
+    for letter in message
+      result << encrypt_letter(letter)
+    end
+    result  
+  end
+  
   private
   
   def encryptable_letter?(letter)
@@ -22,16 +31,5 @@ class Rot
       end
     end
     letter[-1]
-  end
-
-  public
-
-  def encrypt(message)
-    message = message.split("")
-    result = ""
-    for letter in message
-      result << encrypt_letter(letter)
-    end
-    result  
   end
 end
