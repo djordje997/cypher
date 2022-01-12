@@ -10,14 +10,13 @@ class Rot
   end
 
   def encrypt(message)
-    message = message.split("")
     result = ""
-    for letter in message
+    message.each_char do |letter|
       result << encrypt_letter(letter)
     end
     result  
   end
-  
+
   private
   
   def encryptable_letter?(letter)
@@ -27,7 +26,7 @@ class Rot
   def encrypt_letter(letter)
     if encryptable_letter?(letter) 
       @rot_key.times do 
-      letter = letter.next
+        letter = letter.next
       end
     end
     letter[-1]
