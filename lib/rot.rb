@@ -14,7 +14,7 @@ class Rot
     message.each_char do |letter|
       result << encrypt_letter(letter)
     end
-    result  
+    result
   end
 
   private
