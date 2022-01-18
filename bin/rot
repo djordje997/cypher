@@ -2,21 +2,23 @@
 
 require_relative '../lib/rot.rb'
 
-def input_required
-  puts 'Please enter your text'
-  input_text = gets.chomp
-  puts 'Please enter number between 0-26'
-  input_number = gets.chomp.to_i
-  output = Rot.new(input_number).encrypt(input_text)
-  puts output
+def get_user_input (message_to_user)
+  puts message_to_user
+  input_content = gets.chomp
+  input_content
 end
 
 if ARGV[0] == nil
-  input_required
+  input_text = get_user_input('Please enter your text')
+  input_number = get_user_input('Please enter number between 0-26').to_i
 else
   input_number = ARGV[0].to_i
   input_text = ARGV[1]
-  output = Rot.new(input_number).encrypt(input_text)
-  puts output
 end
 
+begin
+  output = Rot.new(input_number).encrypt(input_text)
+rescue ArgumentError => error_message
+  puts error_message
+end
+puts output
