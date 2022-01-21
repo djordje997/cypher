@@ -21,4 +21,7 @@ describe "Rot" do
     rot = Rot.new(13).encrypt("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.") 
     expect(rot).to eq("The quick brown fox jumps over the lazy dog.")
   end
+  it "returns error when rot_key value is greater than MAX_ROT_KEY value" do
+    expect {Rot.new(27)}.to raise_exception(ArgumentError)
+  end
 end
